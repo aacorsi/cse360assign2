@@ -2,7 +2,6 @@
 // Assignment:	2
 // Description:	Basic adding machine class for integers
 
-
 package cse360assign2;
 
 /**
@@ -18,10 +17,17 @@ public class AddingMachine {
 	private int total;
 	
 	/**
-	 * Constructs a new AddingMachine object with an initial total of 0.
+	 * The history of operations performed by the adding machine.
+	 */
+	private String history;
+	
+	/**
+	 * Constructs a new AddingMachine object with an initial total of 0 and an
+	 * initial operating history of "0".
 	 */
 	public AddingMachine () {
 		total = 0;  // not needed - included for clarity
+		history = "0";
 	}
 	
 	/**
@@ -29,23 +35,27 @@ public class AddingMachine {
 	 * @return the total of all calculations.
 	 */
 	public int getTotal () {
-		return 0;
+		return total;
 	}
 	
 	/**
-	 * Adds the specified value to the total.
+	 * Adds the specified value to the total and updates the operation
+	 * history.
 	 * @param value the value to add to the total.
 	 */
 	public void add (int value) {
-		
+		total += value;
+		history += " + " + value;
 	}
 	
 	/**
-	 * Subtracts the specified value from the total.
+	 * Subtracts the specified value from the total and updates the operation
+	 * history.
 	 * @param value the value to subtract from the total.
 	 */
 	public void subtract (int value) {
-		
+		total -= value;
+		history += " - " + value;
 	}
 	
 	/**
@@ -53,13 +63,14 @@ public class AddingMachine {
 	 * @return the history of operations performed on the total.
 	 */
 	public String toString () {
-		return "";
+		return history;
 	}
 	
 	/**
 	 * Resets the total to zero and clears the operational history.
 	 */
 	public void clear() {
-		
+		total = 0;
+		history = "0";
 	}
 }
